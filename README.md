@@ -1,3 +1,3 @@
-# portfolio
+# My Portfolio
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/alejo14171/portfolio)
+This is my Data Scientist and Full Stack Dev portfolio. Fisrt version made only using bolt.new AI. 
