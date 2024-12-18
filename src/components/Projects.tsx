@@ -11,7 +11,7 @@ export default function Projects() {
   });
 
   return (
-    <section className="py-20 bg-gray-50" id="projects">
+    <section className="py-20 bg-gray-50 min-h-screen flex items-center" id="projects">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

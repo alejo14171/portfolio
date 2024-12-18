@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Code2, Brain, Laptop } from 'lucide-react';
 import { aboutData } from '../../data/about';
-import { timelineData } from '../../data/timeline';
+import { timelineData, TimelineItem as TimelineItemType } from '../../data/timeline';
 import TimelineItem from './TimelineItem';
+import ExperienceModal from './ExperienceModal';
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -12,8 +13,21 @@ export default function About() {
     threshold: 0.1
   });
 
+  const [selectedExperience, setSelectedExperience] = useState<TimelineItemType | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (experience: TimelineItemType) => {
+    setSelectedExperience(experience);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedExperience(null), 200);
+  };
+
   return (
-    <section className="py-20 bg-white" id="about">
+    <section className="py-20 bg-white min-h-screen flex items-center" id="about">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-16">About Me</h2>
         
@@ -74,18 +88,20 @@ export default function About() {
               {timelineData.map((item) => (
                 <TimelineItem
                   key={item.id}
-                  date={item.date}
-                  title={item.title}
-                  subtitle={item.subtitle}
-                  description={item.description}
-                  type={item.type}
-                  technologies={item.technologies}
+                  {...item}
+                  onOpenModal={() => handleOpenModal(item)}
                 />
               ))}
             </div>
           </motion.div>
         </div>
       </div>
+
+      <ExperienceModal
+        experience={selectedExperience}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 }

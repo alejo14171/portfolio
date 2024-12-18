@@ -4,7 +4,7 @@ import { Mail, Github, Linkedin } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section className="py-20 bg-gray-900 text-white" id="contact">
+    <section className="py-20 bg-gray-900 text-white min-h-screen flex items-center" id="contact">
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

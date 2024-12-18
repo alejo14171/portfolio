@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-heading {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+#about {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#projects {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+#contact {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Remove scroll-snap as it can interfere with smooth scrolling */
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
